@@ -133,13 +133,6 @@ jobs:
           command: |
                 ./.circleci/build.sh << parameters.tag >>
 
-      # Send notification to the Discord channel.
-      - discord/status:
-          fail_only: false
-          webhook: "${DISCORD_STATUS_WEBHOOK}"
-          failure_message: "Build **${CIRCLE_PIPELINE_NUM}** for commit **${CIRCLE_PIPELINE_TAG}** failed."
-          success_message: "Build **${CIRCLE_PIPELINE_NUM}** for commit **${CIRCLE_PIPELINE_TAG}** OK."
-
 
 # Invoke jobs via workflows.
 #
